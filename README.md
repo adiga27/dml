@@ -4,7 +4,7 @@
 This project is a server application built using Node.js and Express.js. It includes a mongoose connection for storing and retrieving data and upload images to AWS S3.
 
 ## Prerequisites
-Node v20.10.0__
+Node v20.10.0\
 Npm V10.8.1
 
 ## Installation
