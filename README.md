@@ -1,23 +1,26 @@
 # 3D Printing Materials
 
 ## Introduction
-This project is a server application built using Node.js and Express.js. It includes a mongoose connection for storing and retrieving data and upload images to AWS S3. This README provides instructions for setting up and running the server, requesting and Responses examples.
+This project is a server application built using Node.js and Express.js. It includes a mongoose connection for storing and retrieving data and upload images to AWS S3.
 
 ## Prerequisites
 Node v20.10.0
+Npm V10.8.1
 
 ## Installation
-1) Clone the repository: -
+**1. Clone the repository:**
 ```
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/adiga27/dml.git
+cd dml
 ```
-2) Install dependencies:
+**2. Install dependencies:**
 ```
 npm install
 ```
-3) Change a `.env.example` file to `.env` in the root directory and add required data
+**3. Change a `.env.example` file to `.env` in the root directory and add required data**
 ```
+PORT =5000
+
 # MongoDB Databse connection
 DATABASE_URL=mongodb+srv://<username>:<paassword>@cluster-name/database-name
 
@@ -27,22 +30,23 @@ AWS_SECRET_KEY=
 AWS_REGION=
 AWS_S3_BUCKET_NAME=
 ```
-4) Run the server in the terminal
+**4. Run the server**
 ```
 npm start
 ```
 
-## Api Documentation
+## API Documentation
 Base URL : `http://localhost:5000/api/v1/`
 
 
 ### Endpoints
-1) Get All Materials
+**1. Get All Materials**
 
 * URL : `http://localhost:5000/api/v1/materials`
 * Method: `GET`
 * Description: Get all materials from the database.
 * Request: ![alt text](./images/getAll.png)
+* Response:
 ```
 {
     "status": "success",
@@ -102,7 +106,7 @@ Base URL : `http://localhost:5000/api/v1/`
 }
 ```
 
-2. Get a Single Material
+**2. Get a One Material**
 
 * URL: `http://localhost:5000/api/v1/materials/f48eafb7-6de8-4a7f-965d-7a9074c84f7c`
 * Method: `GET`
@@ -132,12 +136,12 @@ Base URL : `http://localhost:5000/api/v1/`
 }
 ```
 
-3) Create an Material
+**3. Create an Material**
 
 * URL: `http://localhost:5000/api/v1/materials/`
 * Method: `POST`
 * Description: Adds a new material to the database.
-* Request Body: ![alt text](./images/create.png)
+* Request: ![alt text](./images/create.png)
 * Response:
 ```
 {
@@ -159,12 +163,12 @@ Base URL : `http://localhost:5000/api/v1/`
 }
 ```
 
-4) Update Materials
+**4. Update Materials**
 
 * URL: `http://localhost:5000/api/v1/materials/667c5f58efbddf6e76e5479e`
 * Method: `PUT`
-* Description: Updates a material to the database.
-* Request Body: ![alt text](./images/update.png)
+* Description: Updates a material by Id.
+* Request: ![alt text](./images/update.png)
 * Response:
 ```
 {
@@ -186,11 +190,11 @@ Base URL : `http://localhost:5000/api/v1/`
 }
 ```
 
-5) Delete Materials
+**5. Delete Materials**
 * URL: `http://localhost:5000/api/v1/materials/667c5f58efbddf6e76e5479e`
 * Method: `DELETE`
-* Description: Delete a material to the database.
-* Request Body: ![alt text](./images/delete.png)
+* Description: Delete a material by Id.
+* Request: ![alt text](./images/delete.png)
 * Response:
 ```
     {
