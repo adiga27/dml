@@ -1,7 +1,7 @@
 # 3D Printing Materials
 
 ## Introduction
-This project is a server application built using Node.js and Express. It includes a mongoose connection for storing and retrieving data. This README provides detailed instructions for setting up , running the server, requesting and Responses.
+This project is a server application built using Node.js and Express.js. It includes a mongoose connection for storing and retrieving data and upload images to AWS S3. This README provides instructions for setting up and running the server, requesting and Responses examples.
 
 ## Prerequisites
 Node v20.10.0
@@ -38,10 +38,11 @@ Base URL : `http://localhost:5000/api/v1/`
 
 ### Endpoints
 1) Get All Materials
-URL : `http://localhost:5000/api/v1/materials`
-Method: `GET`
-Description: Get all materials from the database.
-Request: ![alt text](./images/getAll.png)
+
+*URL : `http://localhost:5000/api/v1/materials`
+*Method: `GET`
+*Description: Get all materials from the database.
+*Request: ![alt text](./images/getAll.png)
 ```
 {
     "status": "success",
@@ -100,15 +101,14 @@ Request: ![alt text](./images/getAll.png)
     ]
 }
 ```
+
 2. Get a Single Material
-URL: `http://localhost:5000/api/v1/materials/f48eafb7-6de8-4a7f-965d-7a9074c84f7c`
 
-Method: `GET`
-
-Description: Retrieves a single material by ID.
-
-Request: ![alt text](./images/getOne.png)
-Response:
+*URL: `http://localhost:5000/api/v1/materials/f48eafb7-6de8-4a7f-965d-7a9074c84f7c`
+*Method: `GET`
+*Description: Retrieves a single material by ID.
+*Request: ![alt text](./images/getOne.png)
+*Response:
 ```
 {
     "status": "success",
@@ -133,15 +133,12 @@ Response:
 ```
 
 3) Create an Material
-URL: `http://localhost:5000/api/v1/materials`
 
-Method: `POST`
-
-Description: Adds a new material to the database.
-
-Request Body: ![alt text](./images/create.png)
-
-Response:
+*URL: `http://localhost:5000/api/v1/materials/`
+*Method: `POST`
+*Description: Adds a new material to the database.
+*Request Body: ![alt text](./images/create.png)
+*Response:
 ```
 {
     "status": "success",
@@ -160,4 +157,44 @@ Response:
         "__v": 0
     }
 }
+```
+
+4) Update Materials
+
+*URL: `http://localhost:5000/api/v1/materials/667c5f58efbddf6e76e5479e`
+*Method: `PUT`
+*Description: Updates a material to the database.
+*Request Body: ![alt text](./images/update.png)
+*Response:
+```
+{
+    "status": "success",
+    "message": {
+        "_id": "667c5f58efbddf6e76e5479e",
+        "name": "ABS",
+        "technology": "FDM",
+        "colors": [
+            "Red"
+        ],
+        "pricePerGram": 0.04,
+        "applicationTypes": [
+            "Prototyping"
+        ],
+        "imageUrl": "https://lms-rnsoft.s3.ap-south-1.amazonaws.com/images/5ab96623-a5c5-462d-aa6d-b3b5070b3d0f",
+        "__v": 0
+    }
+}
+```
+
+5) Delete Materials
+*URL: `http://localhost:5000/api/v1/materials/667c5f58efbddf6e76e5479e`
+*Method: `DELETE`
+*Description: Delete a material to the database.
+*Request Body: ![alt text](./images/delete.png)
+*Response:
+```
+    {
+        "status":"success",
+        "message": null,
+    }
 ```
